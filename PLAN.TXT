@@ -1,0 +1,4 @@
+1. STWORZYC EXPENSES i NA MONGO
+2. USTAWIC USUWANIA> skorzystac z endpointu oraz do state'a czyli skorzystac z midlewara redux thunk
+3. Podlaczyc LOADER jakis
+4.PROBLEM Z SEND W routes na expeneses??

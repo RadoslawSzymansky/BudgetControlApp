@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 // models
 const Incomes = require('../models/incomes');
+const Expenses = require('../models/expenses');
 
 // routers 
 router.get('/incomes', (req, res, next) => {
@@ -34,11 +35,12 @@ router.post('/incomes/add', (req, res, next) => {
   incomeData.save(err => {
     if (err) console.log(err, errors)
   })
+  res.send('Ok')
 });
 
 router.get('/expenses', (req, res, next) => {
-  const incomes = Incomes.find({});
-  incomes.exec((req, data) => {
+  const expenses = Expenses.find({});
+  expenses.exec((req, data) => {
     res.json(data);
   });
 });
@@ -53,12 +55,15 @@ router.delete('/expenses/:id', (req, res, next) => {
 
 router.post('/expenses/add', (req, res, next) => {
   const body = req.body;
-  const expenseData = new Incomes(body);
+  const expenseData = new Expenses(body);
 
   const errors = expenseData.validateSync();
   expenseData.save(err => {
     if (err) console.log(err, errors)
   })
+  // wymagane cos wyslac żeby mogło sie spelnić promise na then po post, chyba powinno sie wyslac status polaczenia
+  res.send('Ok')
+
 });
 
 
