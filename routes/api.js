@@ -17,13 +17,29 @@ router.delete('/incomes/:id', (req, res, next) => {
   const id = req.params.id;
   const income = Incomes.findById(id);
   income.exec((req, data) => {
-    data.remove()
-  });
+    console.log(data, id)
+    if (data) {
+      data.remove()
+      res.send('deleted')
+    }  });
+  // res.send('deleted')
   /// znajdywanie wiecej: 
   //   const findNews = News
     // .find({ title: new RegExp(search.trim(), 'i') })
     // .sort({ created: sort })
     // i inne
+});
+
+router.delete('/expenses/:id', (req, res, next) => {
+  const id = req.params.id;
+  const expense = Expenses.findById(id);
+  expense.exec((req, data) => {
+    if (data) {
+      data.remove()
+      res.send('deleted')
+    }
+  });
+  
 });
 
 // add
@@ -45,13 +61,6 @@ router.get('/expenses', (req, res, next) => {
   });
 });
 
-router.delete('/expenses/:id', (req, res, next) => {
-  const id = req.params.id;
-  const expense= Incomes.findById(id);
-    expense.exec((req, data) => {
-    data.remove()
-  });
-});
 
 router.post('/expenses/add', (req, res, next) => {
   const body = req.body;
