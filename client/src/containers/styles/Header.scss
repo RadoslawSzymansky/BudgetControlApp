@@ -1,0 +1,87 @@
+header.wallet {
+    min-height: 200px;
+    padding: 10px;
+    padding-top: 30px;
+    background-image: url(../../img/stats.jpg);
+    background-size: cover;
+
+    &>h3 {
+        font-size: 24px;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 2px rgb(59, 42, 42), 0 0 2px rgb(0, 0, 0);
+        ;
+
+        .currentDate {
+            font-weight: normal;
+            text-shadow: 0 0 4px rgb(14, 14, 14), 0 0 4px rgb(102, 125, 151);
+        }
+
+        span.cur {
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 0 0 3px rgb(223, 1, 1);
+            color: rgb(255, 255, 255);
+            opacity: 1;
+            font-weight: 300;
+        }
+    }
+
+    .stateBelt {
+        display: flex;
+        width: 70%;
+        max-width: 300px;
+        padding: 5px 10px;
+        margin: 20px auto;
+        justify-content: space-between;
+        box-shadow: 0 0 2px 2px rgb(160, 217, 255);
+        border-radius: 2px;
+
+        p.amount {
+            color: #fff;
+            padding-right: 25px;
+        }
+
+        &.expense {
+            background-color: rgb(167, 71, 214);
+
+            p.amount {
+                margin-left: auto;
+            }
+
+            position: relative;
+        }
+
+        ;
+
+        &.income {
+            background-color: darkcyan;
+        }
+
+        span.expensesPercent {
+            position: absolute;
+            right: 5px;
+            top: 7px;
+            font-size: 10px;
+            background-color: rgba(202, 202, 202, 0.4);
+            padding: 2px;
+            border-radius: 3px;
+            color: #fff;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    header.wallet {
+        h3 {
+            font-size: 32px;
+        }
+
+        min-height: 270px;
+        padding-top: 50px;
+
+        .stateBelt {
+            max-width: 360px;
+            margin: 40px auto;
+        }
+    }
+}
