@@ -1,0 +1,9 @@
+export const UPDATE_WALLET = "UPDATE_WALLET";
+export const ADD_INCOME = "ADD_INCOME";
+export const ADD_EXPENSE = "ADD_EXPENSE";
+export const REMOVE_EXPENSE = "REMOVE_EXPENSE";
+export const REMOVE_INCOME = "REMOVE_INCOME";
+export const CHANGE_CURRENCY = "CHANGE_CURRENCY";
+export const GET_INCOMES = "GET_INCOMES";
+export const GET_EXPENSES = "GET_EXPENSES";
+export const ITEMS_LOADING = "ITEMS_LOADING";

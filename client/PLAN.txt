@@ -1,0 +1,6 @@
+1. Podłaczyć react i redux,
+2. Wyświetlić listę.
+3. Dodać wybór waluty i miesiąca    
+4. RObic merge i branche
+5. Problem z renderrowaniem. Nie wyświetla poprawnie
+6. Problem z paginacja!         

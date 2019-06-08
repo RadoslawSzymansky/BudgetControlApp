@@ -1,0 +1,73 @@
+.addPanel {
+    background-color: rgb(224, 223, 223);
+    padding: 10px;
+
+    .addType {
+        text-align: center;
+
+        select {
+            padding: 4px;
+            background-color: #fff;
+            border: none;
+            box-shadow: 0 0 0 1px rgb(197, 197, 197);
+            border-radius: 3px;
+            color: rgb(121, 121, 121)
+        }
+    }
+
+    ;
+
+    input {
+        padding: 5px;
+        color: rgb(75, 74, 74);
+        border: none;
+        box-shadow: 0 0 0 1px rgb(197, 197, 197);
+        border-radius: 3px;
+    }
+
+    .inputDesc {
+        width: 40%;
+        margin: 0 10px;
+        max-width: 300px
+    }
+
+    .inputMoney {
+        border: none;
+        width: 20%;
+        max-width: 100px;
+        margin-left: auto;
+    }
+
+    .btnAdd {
+        font-size: 18px;
+        border: none;
+        margin-left: 12px;
+        position: relative;
+        top: 2px;
+        color: rgb(194, 47, 47);
+
+        &.active {
+            color: rgb(61, 197, 61)
+        }
+    }
+
+}
+
+.erroMsg {
+    background-color: rgb(218, 127, 127);
+    color: rgb(223, 223, 223);
+    font-size: 12px;
+    padding: 4px;
+    text-align: center;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+@media(min-width: 992px) {
+    .addPanel {
+        .inputDesc {
+            width: 50%;
+            margin: 0 30px;
+            max-width: 300px;
+        }
+    }
+}
