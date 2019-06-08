@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node bin/www",
     "server": "nodemon bin/www",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
