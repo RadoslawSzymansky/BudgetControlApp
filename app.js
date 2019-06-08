@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+/// nowe ustawienia: 
+
 
 var app = express();
 /// connecting mongo db
