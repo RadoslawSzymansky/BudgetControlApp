@@ -17,7 +17,6 @@ router.delete('/incomes/:id', (req, res, next) => {
   const id = req.params.id;
   const income = Incomes.findById(id);
   income.exec((req, data) => {
-    console.log(data, id)
     if (data) {
       data.remove()
       res.send('deleted')
@@ -70,9 +69,10 @@ router.post('/expenses/add', (req, res, next) => {
   expenseData.save(err => {
     if (err) console.log(err, errors)
   })
-  // wymagane cos wyslac żeby mogło sie spelnić promise na then po post, chyba powinno sie wyslac status polaczenia
-  res.send('Ok')
 
+  // tutaj powinienem wyslac http status code , tak jak overment
+  // przed musze sprawdzic w network co pokazuje, jaki status
+  res.send('Ok');
 });
 
 

@@ -1,5 +1,8 @@
-2. USTAWIC USUWANIA> skorzystac z endpointu oraz do state'a czyli skorzystac z midlewara redux thunk
 3. Podlaczyc LOADER jakis
 4.PROBLEM Z SEND W routes na expeneses??
+5. Zabezpieczenie przed podwojnym usunieciem
 5. refaktoryzacja kodu, posuuwac niepotzrebne reducery akcje routery.
 6.Analiza calego kodu lacznie zbackendem
+7. ustawic devo tools redux tak zeby bylo tylko nie na produkcji
+8. dodac statusy odpowiedzi
+9 Autoryzacja logowanie. overment 

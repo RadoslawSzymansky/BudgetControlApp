@@ -17,8 +17,6 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "mongoose": "^5.5.11",
-    "morgan": "~1.9.1",
-    "redux-thunk": "^2.3.0"
-
+    "morgan": "~1.9.1"
   }
 }

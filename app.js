@@ -6,7 +6,6 @@ const config = require('./config/index')
 const mongoose = require('mongoose');
 
 // routers
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 /// nowe ustawienia: 
@@ -26,23 +25,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter)
 
-// nadpisane
-// app.use(express.static(path.join(__dirname, 'client/build')));
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, 'client/build')));
-//   app.get('*', (req, res) => { res.sendfile(path.join(__dirname = 'client/build/index.html')); })
-// }
-// app.get('*', (req, res) => { res.sendFile(path.join(__dirname + '/client/public/index.html')); })
-
 
 if (process.env.NODE_ENV === 'production') {
-  // Set static folder
+  // Set static folder for prod mode. (react, bo inaczej bedzie wyswietlac to co express zaserwuje!)
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
