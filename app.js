@@ -6,14 +6,14 @@ const config = require('./config/index')
 const mongoose = require('mongoose');
 
 // routers
-const usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
-/// nowe ustawienia: 
 
 
 var app = express();
+
 /// connecting mongo db
 mongoose.connect(config.db, { useNewUrlParser: true });
+
 // sprawdzanie polacznenia
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -26,8 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// routes
 app.use('/api', apiRouter)
 
 
@@ -39,7 +38,5 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-
-
 
 module.exports = app;

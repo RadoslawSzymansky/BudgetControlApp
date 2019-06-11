@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {changeCurrency} from '../actions/index';
+
 const CurrencySelect = props => {
     console.log('currency', props)
     return (
@@ -18,5 +19,7 @@ const CurrencySelect = props => {
         </div>
     )
 }
-const mapStateToProps = state => ({currentCurrency: state.settings.currentCurrency})
+
+const mapStateToProps = state => ({currentCurrency: state.settings.currentCurrency});
+
 export default connect(mapStateToProps, {changeCurrency})(CurrencySelect);

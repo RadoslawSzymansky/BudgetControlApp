@@ -8,4 +8,4 @@ var Incomes = new Schema({
   value: { type: Number, required: true}
 });
 
-module.exports = mongoose.model('Incomes', Incomes)
+module.exports = mongoose.model('Incomes', Incomes);

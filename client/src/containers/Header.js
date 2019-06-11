@@ -21,11 +21,8 @@ const Header = props => {
             </div>
         </header>
     )
-}
-const mapStateToProps = function (state) {
-    return {
-        wallet: state.wallet,
-    }
-}
+};
+
+const mapStateToProps = state => ({wallet: state.wallet});
 
 export default  connect(mapStateToProps)(Header);

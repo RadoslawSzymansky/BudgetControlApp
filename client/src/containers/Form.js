@@ -68,12 +68,6 @@ const FormPanel = (props) => {
       )}
     </Formik>
   )
-}
-const mapStateToProps = function (state) {
-  return {
-    expenses: state.expenses,
-    incomes: state.incomes,
-    currenciesToPln: state.currenciesToPln,
-  }
-}
-export default connect(mapStateToProps, { addInc, addExp} )(FormPanel)
+};
+
+export default connect(()=>({}), { addInc, addExp} )(FormPanel);

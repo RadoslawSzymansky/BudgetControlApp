@@ -21,7 +21,6 @@ export default function incomesData(state= {}, action) {
                 ...newState
             })
         case GET_INCOMES:
-            console.log('get incomes2222')
             return ({
                 ...action.payload,
             })

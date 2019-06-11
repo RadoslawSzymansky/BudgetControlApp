@@ -9,17 +9,18 @@ import { connect } from 'react-redux';
 import CurrencySelect from '../containers/CurrencySelect';
 
 class App extends React.Component {
+
   componentDidMount(){  
-    // zaktualizowac wallet w w store
-    console.log('componenDidMount')
     const wallet = this.calcWallet();
     this.props.updateWallet(wallet);
     this.props.getItems();
   }
+
   componentDidUpdate(){
      const wallet = this.calcWallet();
      this.props.updateWallet(wallet)
   }
+
   calcWallet = () => {
     const {expenses, incomes, currentCurrency} = this.props;
     let expsValue = 0;
@@ -37,17 +38,21 @@ class App extends React.Component {
       expPercent,
     }
   }
+
    calcCurrency = (value, from, to) => {
      const {currenciesToPln} = this.props;
      const resr = value * (currenciesToPln[from]) / (currenciesToPln[to])
      return parseFloat(resr.toFixed(2))
    }
+
   render(){
     const { expenses, incomes, currentCurrency } = this.props;
+    
     const expList = _.map(expenses, e => ({
       ...e,
       value: this.calcCurrency(e.value, e.currency, currentCurrency)
     })); 
+
     const incList = _.map(incomes, e => ({
       ...e,
       value: this.calcCurrency(e.value, e.currency, currentCurrency)

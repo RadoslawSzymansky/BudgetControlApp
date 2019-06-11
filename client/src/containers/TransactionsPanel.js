@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import {removeExpTransaction, removeIncTransaction} from '../actions/index';
+
 class TransactionsPanel extends React.Component {
     state = {
         page: 1,
@@ -72,9 +73,11 @@ class TransactionsPanel extends React.Component {
             </>
         )
     }
-} 
+};
+
 const mapStateToProps = state => ({
     cur: state.settings.currentCurrency,
     expValue: state.wallet.expsValue
-})
-export default connect(mapStateToProps, {removeExpTransaction, removeIncTransaction})(TransactionsPanel)
+});
+
+export default connect(mapStateToProps, {removeExpTransaction, removeIncTransaction})(TransactionsPanel);

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 const FinanceList = props => {
     let percentValue = (props.value / props.expValue * 100).toFixed(0);
     const percent = props.type === "EXP" ? <span className="expensesPercent">{percentValue}%</span> : null;
@@ -13,17 +14,20 @@ const FinanceList = props => {
             </div>
         </li>
     )
-}
+};
+
 FinanceList.propTypes = {
     type: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
     expValue: PropTypes.number,
-}
+};
+
 FinanceList.defaultProps = {
     type: 'Sorry no data',
     name: ' Sory no name',
     value: 0,
     expValue: 0
-}
+};
+
 export default FinanceList

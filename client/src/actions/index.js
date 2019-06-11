@@ -3,8 +3,6 @@ import axios from 'axios';
 
 export const updateWallet = wallet => ({type: UPDATE_WALLET, payload: wallet});
 
-export const removeIncome = (id) => ({type: REMOVE_INCOME, payload: id});
-export const removeExpense = (id) => ({type: REMOVE_EXPENSE, payload: id });
 export const changeCurrency = (curency) => ({ type: CHANGE_CURRENCY, payload: curency });
 
 export const addInc = (transaction) => dispatch => {    
@@ -31,7 +29,7 @@ export const removeIncTransaction = id => dispatch => {
             type: REMOVE_INCOME,
             payload: id
         })).then(e => {
-            console.log('usunieto')
+            console.log('usunieto inc')
         })
 }
 export const removeExpTransaction = id => dispatch => {
@@ -41,11 +39,10 @@ export const removeExpTransaction = id => dispatch => {
             type: REMOVE_EXPENSE,
             payload: id
         })).then(e=>{
-            console.log('usunieto')
+            console.log('usunieto exp')
         })
 }
 export const getItems = () => dispatch => {
-    console.log('a')
     dispatch(setItemsLoading())
     axios
         .get('/api/incomes')
@@ -58,7 +55,7 @@ export const getItems = () => dispatch => {
         .then(res => dispatch({
             type: GET_EXPENSES,
             payload: res.data
-        }))
+        }));
 }; 
 export const setItemsLoading = () => {
     return {

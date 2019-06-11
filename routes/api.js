@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 // models
 const Incomes = require('../models/incomes');
 const Expenses = require('../models/expenses');
@@ -20,13 +21,7 @@ router.delete('/incomes/:id', (req, res, next) => {
     if (data) {
       data.remove()
       res.send('deleted')
-    }  });
-  // res.send('deleted')
-  /// znajdywanie wiecej: 
-  //   const findNews = News
-    // .find({ title: new RegExp(search.trim(), 'i') })
-    // .sort({ created: sort })
-    // i inne
+    }});
 });
 
 router.delete('/expenses/:id', (req, res, next) => {
@@ -38,7 +33,6 @@ router.delete('/expenses/:id', (req, res, next) => {
       res.send('deleted')
     }
   });
-  
 });
 
 // add
@@ -50,6 +44,7 @@ router.post('/incomes/add', (req, res, next) => {
   incomeData.save(err => {
     if (err) console.log(err, errors)
   })
+  
   res.send('Ok')
 });
 
