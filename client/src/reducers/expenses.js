@@ -1,8 +1,7 @@
-import { expenses } from '../tempData/index';
 import { ADD_EXPENSE , REMOVE_EXPENSE, GET_EXPENSES} from '../actions/constants/action-types';
 import _ from 'lodash';
 import uuid from 'uuid'
-export default function incomesData(state = expenses, action) {
+export default function incomesData(state = {}, action) {
     switch (action.type) {
         case GET_EXPENSES:
             console.log('get exp')

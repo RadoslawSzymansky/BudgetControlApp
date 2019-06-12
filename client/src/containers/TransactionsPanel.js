@@ -1,5 +1,6 @@
 import React from "react";
 import LiItem from "../components/LiItem";
+import Loader from "../components/Loader";
 import "../components/styles/TransactionList.scss";
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
@@ -65,10 +66,16 @@ class TransactionsPanel extends React.Component {
         }
         return (
             <>
+                
                 <ul className="financeBox">
                     {pagination()}
                     <h4 className="title">{props.type === "INC" ? "INCOMES" : "EXPENSES"}</h4>
                     {list}
+                    <div style={{textAlign: 'center', paddingTop: 20}}>
+                        {props.type === "EXP" ? (props.isExpLoading ? <Loader /> : null) : null}
+                        {props.type === "INC" ? (props.isIncLoading ? <Loader /> : null) : null}  
+                    </div>
+                      
                 </ul>
             </>
         )
@@ -77,7 +84,9 @@ class TransactionsPanel extends React.Component {
 
 const mapStateToProps = state => ({
     cur: state.settings.currentCurrency,
-    expValue: state.wallet.expsValue
+    expValue: state.wallet.expsValue,
+    isExpLoading: state.settings.expLoading,
+    isIncLoading: state.settings.incLoading
 });
 
 export default connect(mapStateToProps, {removeExpTransaction, removeIncTransaction})(TransactionsPanel);

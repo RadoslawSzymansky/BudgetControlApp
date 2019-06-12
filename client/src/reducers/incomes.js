@@ -1,4 +1,3 @@
-// import {incomes} from '../tempData/index';
 import { ADD_INCOME, REMOVE_INCOME , GET_INCOMES,} from '../actions/constants/action-types'
 import uuid from 'uuid'
 import _ from 'lodash';

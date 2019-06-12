@@ -3,9 +3,9 @@ import Loader from 'react-loader-spinner'
 
 export default () => (
   <Loader
-    type="Circles"
+    type="TailSpin"
     color="#00BFFF"
-    height="100"
-    width="100"
+    height="50"
+    width="50"
   />
 )

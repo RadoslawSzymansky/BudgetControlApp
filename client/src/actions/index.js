@@ -1,4 +1,16 @@
-import {UPDATE_WALLET,  ADD_INCOME, ADD_EXPENSE, REMOVE_EXPENSE, REMOVE_INCOME, CHANGE_CURRENCY, GET_INCOMES, ITEMS_LOADING, GET_EXPENSES} from './constants/action-types';
+import {
+    UPDATE_WALLET,
+    ADD_INCOME, 
+    ADD_EXPENSE, 
+    REMOVE_EXPENSE, 
+    REMOVE_INCOME, 
+    CHANGE_CURRENCY, 
+    GET_INCOMES, 
+    ITEMS_LOADING, 
+    GET_EXPENSES, 
+    IS_EXP_LOADING, 
+    IS_INC_LOADING
+} from './constants/action-types';
 import axios from 'axios';
 
 export const updateWallet = wallet => ({type: UPDATE_WALLET, payload: wallet});
@@ -44,18 +56,20 @@ export const removeExpTransaction = id => dispatch => {
 }
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading())
+    dispatch({ type: IS_INC_LOADING, payload: true })
+    dispatch({ type: IS_EXP_LOADING, payload: true })
     axios
         .get('/api/incomes')
-        .then(res => dispatch({
-            type: GET_INCOMES,
-            payload: res.data
-        }));
+        .then(res => {
+            dispatch({ type: GET_INCOMES, payload: res.data,});
+            dispatch({ type: IS_INC_LOADING, payload: false })
+        });
     axios
         .get('/api/expenses')
-        .then(res => dispatch({
-            type: GET_EXPENSES,
-            payload: res.data
-        }));
+        .then(res => {
+            dispatch({ type: GET_EXPENSES, payload: res.data,});
+            dispatch({ type: IS_EXP_LOADING, payload: false });
+    });
 }; 
 export const setItemsLoading = () => {
     return {
