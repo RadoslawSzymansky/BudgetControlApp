@@ -1,0 +1,4 @@
+1. sposob przekazanie bledu do funkcji dedulowej obsludze bledow
+2. przekazanie bledu funckji reject w przypadku obietnicy
+3. uowrzenie wyjatktku z wyrazeniem throw
+4. emitowanie zdarzenie bledu z pomoca EventEimmitera

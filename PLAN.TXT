@@ -1,6 +1,4 @@
-2. Merge do masterra i nowy branch. i Rebase sparwdzic co sie stanie z commietami ztego brancha
-3. Podlaczyc LOADER jakis
-4.PROBLEM Z SEND W routes na expeneses??
+2. Merge do masterra i nowy branch. i Rebase sparwdzic co sie stanie z commietami z tego brancha
 5. Zabezpieczenie przed podwojnym usunieciem
 5. refaktoryzacja kodu, posuuwac niepotzrebne reducery akcje routery.
 6.Analiza calego kodu lacznie zbackendem

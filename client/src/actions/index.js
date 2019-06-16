@@ -63,7 +63,7 @@ export const getItems = () => dispatch => {
         .then(res => {
             dispatch({ type: GET_INCOMES, payload: res.data,});
             dispatch({ type: IS_INC_LOADING, payload: false })
-        });
+        })
     axios
         .get('/api/expenses')
         .then(res => {
