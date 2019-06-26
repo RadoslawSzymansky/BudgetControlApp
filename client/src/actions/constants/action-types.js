@@ -9,3 +9,4 @@ export const GET_EXPENSES = "GET_EXPENSES";
 export const ITEMS_LOADING = "ITEMS_LOADING"; 
 export const IS_EXP_LOADING = "EXPS_LOADING"; 
 export const IS_INC_LOADING = "INCS_LOADING";
+export const IS_REMOVING = "IS_REMOVING";

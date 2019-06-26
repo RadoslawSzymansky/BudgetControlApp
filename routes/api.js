@@ -17,10 +17,11 @@ router.get('/incomes', (req, res, next) => {
 router.delete('/incomes/:id', (req, res, next) => {
   const id = req.params.id;
   const income = Incomes.findById(id);
-  income.exec((req, data) => {
+  income.exec((err, data,) => {
+    if (err) return res.status(400).send(err);
     if (data) {
-      data.remove()
-      res.send('deleted')
+      data.remove();
+      res.send();
     }});
 });
 
@@ -43,9 +44,9 @@ router.post('/incomes/add', (req, res, next) => {
   const errors = incomeData.validateSync();
   incomeData.save(err => {
     if (err) console.log(err, errors)
-  })
+  });
   
-  res.send('Ok')
+  res.send(incomeData);
 });
 
 router.get('/expenses', (req, res, next) => {
@@ -67,7 +68,7 @@ router.post('/expenses/add', (req, res, next) => {
 
   // tutaj powinienem wyslac http status code , tak jak overment
   // przed musze sprawdzic w network co pokazuje, jaki status
-  res.send('Ok');
+  res.send(expenseData);
 });
 
 

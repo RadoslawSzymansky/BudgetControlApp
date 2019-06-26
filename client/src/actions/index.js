@@ -9,7 +9,8 @@ import {
     ITEMS_LOADING, 
     GET_EXPENSES, 
     IS_EXP_LOADING, 
-    IS_INC_LOADING
+    IS_INC_LOADING,
+    IS_REMOVING
 } from './constants/action-types';
 import axios from 'axios';
 
@@ -36,22 +37,36 @@ export const addExp = (transaction) => dispatch => {
 }
 export const removeIncTransaction = id => dispatch => {
     console.log(id)
+    dispatch({
+        type: IS_REMOVING,
+        isRemoving: true,
+    })
     axios.delete(`/api/incomes/${id}`)
         .then(res => dispatch({
             type: REMOVE_INCOME,
             payload: id
         })).then(e => {
-            console.log('usunieto inc')
+            dispatch({
+                type: IS_REMOVING,
+                isRemoving: true,
+            })
         })
 }
 export const removeExpTransaction = id => dispatch => {
     console.log(id)
+    dispatch({
+        type: IS_REMOVING,
+        isRemoving: true,
+    })
     axios.delete(`/api/expenses/${id}`)
         .then(res => dispatch({
             type: REMOVE_EXPENSE,
             payload: id
         })).then(e=>{
-            console.log('usunieto exp')
+            dispatch({
+                type: IS_REMOVING,
+                isRemoving: false,
+            })
         })
 }
 export const getItems = () => dispatch => {

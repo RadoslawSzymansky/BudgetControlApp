@@ -18,7 +18,7 @@ mongoose.connect(config.db, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-  console.log('Połaczone z mongo DB!')
+  console.log('Połaczone z mongo DB!');
 });
 
 app.use(logger('dev'));
@@ -40,3 +40,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = app;
+
+expenses = [
+  {
+    owner: 'userId',
+    name: 'abc'
+  },
+  {
+    owner: 'userId3',
+    name: 'abc'
+  }
+]

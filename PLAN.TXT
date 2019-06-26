@@ -1,7 +1,5 @@
-2. Merge do masterra i nowy branch. i Rebase sparwdzic co sie stanie z commietami z tego brancha
-5. Zabezpieczenie przed podwojnym usunieciem
 5. refaktoryzacja kodu, posuuwac niepotzrebne reducery akcje routery.
-6.Analiza calego kodu lacznie zbackendem
+6. Analiza calego kodu lacznie zbackendem
 7. ustawic devo tools redux tak zeby bylo tylko nie na produkcji
 8. dodac statusy odpowiedzi
 9 Autoryzacja logowanie. overment 

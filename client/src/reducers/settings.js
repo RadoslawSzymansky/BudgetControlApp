@@ -1,11 +1,12 @@
-import {CHANGE_CURRENCY, IS_EXP_LOADING, IS_INC_LOADING} from '../actions/constants/action-types';
+import {CHANGE_CURRENCY, IS_EXP_LOADING, IS_INC_LOADING, IS_REMOVING} from '../actions/constants/action-types';
 
 const defaultSettings = {
     currentMonth: 0,
     currentCurrency: "PLN",
     currentView: "all",
     expLoading: false,
-    incLoading: false
+    incLoading: false,
+    isRemoving: false
 };
 
 export default function (state = defaultSettings , action) {
@@ -24,6 +25,11 @@ export default function (state = defaultSettings , action) {
             return {
                 ...state,
                 incLoading: action.payload
+            }
+        case IS_REMOVING: 
+            return {
+                ...state,
+                isRemoving: action.payload
             }
         default: 
             return state

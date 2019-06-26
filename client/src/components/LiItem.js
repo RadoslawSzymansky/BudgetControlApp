@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from 'react-redux';
 
 const FinanceList = props => {
     let percentValue = (props.value / props.expValue * 100).toFixed(0);
@@ -9,7 +10,7 @@ const FinanceList = props => {
             <p className="name">{props.name}</p>
             <div className="wrapper">
                 <p className="value">{props.value} <span className="cur">{props.cur}</span></p>
-                <button onClick={props.delete.bind(null, props.id)} className="btnDelete">X</button>
+                <button onClick={props.isRemoving? null : props.delete.bind(null, props.id)} className="btnDelete">X</button>
                 {percent}
             </div>
         </li>
@@ -30,4 +31,7 @@ FinanceList.defaultProps = {
     expValue: 0
 };
 
-export default FinanceList
+const mapStateToProps = state => ({
+    isLoading: state.settings.isRemoving
+})
+export default connect(mapStateToProps)(FinanceList);
