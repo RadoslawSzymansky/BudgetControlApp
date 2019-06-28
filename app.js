@@ -40,14 +40,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = app;
-
-expenses = [
-  {
-    owner: 'userId',
-    name: 'abc'
-  },
-  {
-    owner: 'userId3',
-    name: 'abc'
-  }
-]

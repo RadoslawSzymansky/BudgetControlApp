@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {changeCurrency} from '../actions/index';
 
 const CurrencySelect = props => {
-    console.log('currency', props)
     return (
         <div className="currencySelect" >
             <label htmlFor="curChoice" > Show in: </label>

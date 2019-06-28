@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 const FinanceList = props => {
     let percentValue = (props.value / props.expValue * 100).toFixed(0);
     const percent = props.type === "EXP" ? <span className="expensesPercent">{percentValue}%</span> : null;
+    // console.log(props)
     return (
         <li>
             <p className="name">{props.name}</p>

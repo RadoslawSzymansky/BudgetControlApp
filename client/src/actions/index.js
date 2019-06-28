@@ -20,23 +20,23 @@ export const changeCurrency = (curency) => ({ type: CHANGE_CURRENCY, payload: cu
 
 export const addInc = (transaction) => dispatch => {    
     axios.post('/api/incomes/add', transaction)
-        .then(res => dispatch({
-            type: ADD_INCOME,
-            payload: transaction
-        })).then(e => {
-            console.log('dodany icnome')
-        })
+    .then(res => transaction._id = res.data)
+    .then(res => dispatch({
+        type: ADD_INCOME,
+        payload: transaction
+    }))
 }
 
 export const addExp = (transaction) => dispatch => {
     axios.post('/api/expenses/add', transaction)
+    .then(res => transaction._id = res.data)
     .then(res => dispatch({
             type: ADD_EXPENSE,
             payload: transaction
     }))
 }
+
 export const removeIncTransaction = id => dispatch => {
-    console.log(id)
     dispatch({
         type: IS_REMOVING,
         isRemoving: true,
@@ -53,7 +53,6 @@ export const removeIncTransaction = id => dispatch => {
         })
 }
 export const removeExpTransaction = id => dispatch => {
-    console.log(id)
     dispatch({
         type: IS_REMOVING,
         isRemoving: true,

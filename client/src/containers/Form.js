@@ -28,7 +28,7 @@ const FormPanel = (props) => {
             text: values.name,
             currency: values.currency,
             value: values.cash,
-            date: new Date().getDate()
+            date: new Date().toISOString()
         }
         if (values.type === "inc") {
           props.addInc(transaction)

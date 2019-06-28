@@ -16,9 +16,13 @@ router.get('/incomes', (req, res, next) => {
 // find just one by id and here delete
 router.delete('/incomes/:id', (req, res, next) => {
   const id = req.params.id;
+  console.log(id);
   const income = Incomes.findById(id);
   income.exec((err, data,) => {
-    if (err) return res.status(400).send(err);
+    if (err) {
+       res.status(400).send(err);
+       next(err);
+    };
     if (data) {
       data.remove();
       res.send();
@@ -28,7 +32,12 @@ router.delete('/incomes/:id', (req, res, next) => {
 router.delete('/expenses/:id', (req, res, next) => {
   const id = req.params.id;
   const expense = Expenses.findById(id);
-  expense.exec((req, data) => {
+  expense.exec((err, data) => {
+    if (err) {
+      res.status(400).send(err);
+      next(err);
+    };
+
     if (data) {
       data.remove()
       res.send('deleted')
@@ -43,15 +52,20 @@ router.post('/incomes/add', (req, res, next) => {
 
   const errors = incomeData.validateSync();
   incomeData.save(err => {
-    if (err) console.log(err, errors)
+    if (err) console.log(err, errors);
+    next(err);
   });
   
-  res.send(incomeData);
+  res.send(incomeData.id);
 });
 
 router.get('/expenses', (req, res, next) => {
   const expenses = Expenses.find({});
-  expenses.exec((req, data) => {
+  expenses.exec((err, data) => {
+    if (err) {
+      res.status(400).send(err);
+      next(err);
+    };
     res.json(data);
   });
 });
@@ -68,7 +82,7 @@ router.post('/expenses/add', (req, res, next) => {
 
   // tutaj powinienem wyslac http status code , tak jak overment
   // przed musze sprawdzic w network co pokazuje, jaki status
-  res.send(expenseData);
+  res.send(expenseData.id);
 });
 
 

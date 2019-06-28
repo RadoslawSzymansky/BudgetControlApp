@@ -4,9 +4,10 @@ import _ from 'lodash';
 export default function incomesData(state= {}, action) {
     switch (action.type) {
         case ADD_INCOME:
+              const key = _.map(state).length + 1;
               return ({
                 ...state,
-                [uuid()]: action.payload
+                [key]: action.payload
             });
         case REMOVE_INCOME:
             const newState = { ...state }
