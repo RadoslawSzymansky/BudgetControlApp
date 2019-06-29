@@ -1,6 +1,2 @@
-5. refaktoryzacja kodu, posuuwac niepotzrebne reducery akcje routery.
-6. Analiza calego kodu lacznie zbackendem
 7. ustawic devo tools redux tak zeby bylo tylko nie na produkcji
-8. dodac statusy odpowiedzi
 9 Autoryzacja logowanie. overment 
-10. Nadaje złe id?  Nie mozna usunąć po dodaniu. DOpiero jak sie wgra od nowa.? param id wtedy jest jako undefined.

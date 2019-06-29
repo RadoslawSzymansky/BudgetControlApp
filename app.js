@@ -4,10 +4,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require('./config/index')
 const mongoose = require('mongoose');
+const errorHandler = require('./middlewars/errorHandler');
 
 // routers
 const apiRouter = require('./routes/api');
-
 
 var app = express();
 
@@ -29,6 +29,7 @@ app.use(cookieParser());
 // routes
 app.use('/api', apiRouter)
 
+app.use(errorHandler);
 
 if (process.env.NODE_ENV === 'production') {
   // Set static folder for prod mode. (react, bo inaczej bedzie wyswietlac to co express zaserwuje!)

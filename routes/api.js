@@ -5,10 +5,24 @@ const router = express.Router();
 const Incomes = require('../models/incomes');
 const Expenses = require('../models/expenses');
 
-// routers 
+// get all
 router.get('/incomes', (req, res, next) => {
-  const incomes = Incomes.find({});
+  const incomes = Incomes.find({}, (err, docs) => {
+    if (err) next(err);
+  });
+
   incomes.exec((req, data) => {
+    res.json(data);
+  });
+});
+
+router.get('/expenses', (req, res, next) => {
+  const expenses = Expenses.find({});
+  expenses.exec((err, data) => {
+    if (err) {
+      res.status(400).send(err);
+      next(err);
+    };
     res.json(data);
   });
 });
@@ -16,8 +30,8 @@ router.get('/incomes', (req, res, next) => {
 // find just one by id and here delete
 router.delete('/incomes/:id', (req, res, next) => {
   const id = req.params.id;
-  console.log(id);
   const income = Incomes.findById(id);
+
   income.exec((err, data,) => {
     if (err) {
        res.status(400).send(err);
@@ -59,18 +73,6 @@ router.post('/incomes/add', (req, res, next) => {
   res.send(incomeData.id);
 });
 
-router.get('/expenses', (req, res, next) => {
-  const expenses = Expenses.find({});
-  expenses.exec((err, data) => {
-    if (err) {
-      res.status(400).send(err);
-      next(err);
-    };
-    res.json(data);
-  });
-});
-
-
 router.post('/expenses/add', (req, res, next) => {
   const body = req.body;
   const expenseData = new Expenses(body);
@@ -82,7 +84,7 @@ router.post('/expenses/add', (req, res, next) => {
 
   // tutaj powinienem wyslac http status code , tak jak overment
   // przed musze sprawdzic w network co pokazuje, jaki status
-  res.send(expenseData.id);
+  res.status(200).send(expenseData.id);
 });
 
 
